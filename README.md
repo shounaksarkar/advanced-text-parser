@@ -10,7 +10,7 @@ This project demonstrates a robust system for converting unstructured text into 
 ## Long Context Handling
 
 
-![Solving the long context challenge](assets/s1.png)
+![Solving the long context challenge](assets/s3.png)
 
 **Steps:**
 1. Preprocess the raw input text into semantically meaningful chunks.
