@@ -1,0 +1,459 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "citation_file_format",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "cff-version": {
+          "type": "string",
+          "description": "The version of CFF used for providing the citation metadata. Must be 1.2.0"
+        },
+        "title": {
+          "type": "string",
+          "description": "The name of the software or dataset."
+        },
+        "message": {
+          "type": "string",
+          "description": "A message to the human reader of the file to let them know what to do with the citation metadata."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the work.",
+          "enum": ["dataset", "software"]
+        },
+        "authors": {
+          "type": "array",
+          "description": "The author(s) of the software or dataset.",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "description": "A person author",
+                "properties": {
+                  "family-names": {
+                    "type": "string",
+                    "description": "The person's family names."
+                  },
+                  "given-names": {
+                    "type": "string",
+                    "description": "The person's given names."
+                  },
+                  "name-particle": {
+                    "type": "string",
+                    "description": "The person's name particle."
+                  },
+                  "name-suffix": {
+                    "type": "string",
+                    "description": "The person's name-suffix."
+                  },
+                  "orcid": {
+                    "type": "string",
+                    "description": "The person's ORCID identifier."
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "The person's email address."
+                  },
+                  "affiliation": {
+                    "type": "string",
+                    "description": "The person's affiliation."
+                  },
+                  "address": {
+                    "type": "string",
+                    "description": "The person's address."
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "The person's city."
+                  },
+                  "region": {
+                    "type": "string",
+                    "description": "The person's region."
+                  },
+                  "post-code": {
+                    "type": "string",
+                    "description": "The person's post code."
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "The person's country (ISO 3166-1 alpha-2 code)."
+                  },
+                  "tel": {
+                    "type": "string",
+                    "description": "The person's phone number."
+                  },
+                  "fax": {
+                    "type": "string",
+                    "description": "The person's fax number."
+                  },
+                  "website": {
+                    "type": "string",
+                    "description": "The person's website URL."
+                  },
+                  "alias": {
+                    "type": "string",
+                    "description": "The person's alias."
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              {
+                "description": "An entity author",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The entity's name."
+                  },
+                  "address": {
+                    "type": "string",
+                    "description": "The entity's address."
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "The entity's city."
+                  },
+                  "region": {
+                    "type": "string",
+                    "description": "The entity's region."
+                  },
+                  "post-code": {
+                    "type": "string",
+                    "description": "The entity's post code."
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "The entity's country."
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "The entity's email address."
+                  },
+                  "tel": {
+                    "type": "string",
+                    "description": "The entity's telephone number."
+                  },
+                  "fax": {
+                    "type": "string",
+                    "description": "The entity's fax number."
+                  },
+                  "website": {
+                    "type": "string",
+                    "description": "The entity's website URL."
+                  },
+                  "orcid": {
+                    "type": "string",
+                    "description": "The entity's ORCID."
+                  },
+                  "alias": {
+                    "type": "string",
+                    "description": "The entity's alias."
+                  },
+                  "location": {
+                    "type": "string",
+                    "description": "The entity's location."
+                  },
+                  "date-start": {
+                    "type": "string",
+                    "description": "The entity's starting date."
+                  },
+                  "date-end": {
+                    "type": "string",
+                    "description": "The entity's ending date."
+                  }
+                },
+                "required": ["name"],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "abstract": {
+          "type": "string",
+          "description": "A description of the software or dataset."
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the software or dataset."
+        },
+        "date-released": {
+          "type": "string",
+          "description": "The date the work has been released."
+        },
+        "doi": {
+          "type": "string",
+          "description": "The DOI of the work."
+        },
+        "identifiers": {
+          "type": "array",
+          "description": "The identifiers of the software or dataset.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The identifier value."
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of identifier."
+              },
+              "description": {
+                "type": "string",
+                "description": "A description for this identifier."
+              }
+            },
+            "required": ["value"],
+            "additionalProperties": false
+          }
+        },
+        "license": {
+          "type": "array",
+          "description": "SPDX license identifier(s).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "license-url": {
+          "type": "string",
+          "description": "The URL of the license text."
+        },
+        "keywords": {
+          "type": "array",
+          "description": "Keywords that describe the work.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "commit": {
+          "type": "string",
+          "description": "The Git commit hash or revision number."
+        },
+        "url": {
+          "type": "string",
+          "description": "The URL of a landing page for the software or dataset."
+        },
+        "repository": {
+          "type": "string",
+          "description": "The URL of the work in a repository."
+        },
+        "repository-code": {
+          "type": "string",
+          "description": "The URL of the work in a source code repository."
+        },
+        "repository-artifact": {
+          "type": "string",
+          "description": "The URL of the work in a build artifact repository."
+        },
+        "contact": {
+          "type": "array",
+          "description": "The contact person, group, company, etc.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "family-names": {
+                "type": "string",
+                "description": "Contact person's family names."
+              },
+              "given-names": {
+                "type": "string",
+                "description": "Contact person's given names."
+              },
+              "name": {
+                "type": "string",
+                "description": "Contact entity's name."
+              },
+              "email": {
+                "type": "string",
+                "description": "Contact email address."
+              },
+              "orcid": {
+                "type": "string",
+                "description": "Contact ORCID identifier."
+              },
+              "affiliation": {
+                "type": "string",
+                "description": "Contact affiliation."
+              },
+              "website": {
+                "type": "string",
+                "description": "Contact website URL."
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "preferred-citation": {
+          "type": "object",
+          "description": "A reference to another work that should be cited instead.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The type of the work.",
+              "enum": [
+                "art", "article", "audiovisual", "bill", "blog", "book", "catalogue",
+                "conference-paper", "conference", "data", "database", "dictionary",
+                "edited-work", "encyclopedia", "film-broadcast", "generic",
+                "government-document", "grant", "hearing", "historical-work",
+                "legal-case", "legal-rule", "magazine-article", "manual", "map",
+                "multimedia", "music", "newspaper-article", "pamphlet", "patent",
+                "personal-communication", "proceedings", "report", "serial", "slides",
+                "software-code", "software-container", "software-executable",
+                "software-virtual-machine", "software", "sound-recording", "standard",
+                "statute", "thesis", "unpublished", "video", "website"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "description": "The title of the work."
+            },
+            "authors": {
+              "type": "array",
+              "description": "The author(s) of the work.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "family-names": {
+                    "type": "string",
+                    "description": "The person's family names."
+                  },
+                  "given-names": {
+                    "type": "string",
+                    "description": "The person's given names."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Entity name for institutional authors."
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "doi": {
+              "type": "string",
+              "description": "The DOI of the work."
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of the work."
+            },
+            "year": {
+              "type": "integer",
+              "description": "The publication year."
+            },
+            "month": {
+              "type": "integer",
+              "description": "The publication month (1-12)."
+            },
+            "journal": {
+              "type": "string",
+              "description": "The journal name."
+            },
+            "volume": {
+              "type": "string",
+              "description": "The volume number."
+            },
+            "issue": {
+              "type": "string",
+              "description": "The issue number."
+            },
+            "pages": {
+              "type": "string",
+              "description": "The page range."
+            }
+          },
+          "required": ["type", "title", "authors"],
+          "additionalProperties": false
+        },
+        "references": {
+          "type": "array",
+          "description": "Reference(s) to other creative works.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "The type of the work.",
+                "enum": [
+                  "art", "article", "audiovisual", "bill", "blog", "book", "catalogue",
+                  "conference-paper", "conference", "data", "database", "dictionary",
+                  "edited-work", "encyclopedia", "film-broadcast", "generic",
+                  "government-document", "grant", "hearing", "historical-work",
+                  "legal-case", "legal-rule", "magazine-article", "manual", "map",
+                  "multimedia", "music", "newspaper-article", "pamphlet", "patent",
+                  "personal-communication", "proceedings", "report", "serial", "slides",
+                  "software-code", "software-container", "software-executable",
+                  "software-virtual-machine", "software", "sound-recording", "standard",
+                  "statute", "thesis", "unpublished", "video", "website"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "description": "The title of the work."
+              },
+              "authors": {
+                "type": "array",
+                "description": "The author(s) of the work.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "family-names": {
+                      "type": "string",
+                      "description": "The person's family names."
+                    },
+                    "given-names": {
+                      "type": "string",
+                      "description": "The person's given names."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Entity name for institutional authors."
+                    }
+                  },
+                  "required": [],
+                  "additionalProperties": false
+                }
+              },
+              "doi": {
+                "type": "string",
+                "description": "The DOI of the work."
+              },
+              "url": {
+                "type": "string",
+                "description": "The URL of the work."
+              },
+              "year": {
+                "type": "integer",
+                "description": "The publication year."
+              },
+              "journal": {
+                "type": "string",
+                "description": "The journal name."
+              },
+              "volume": {
+                "type": "string",
+                "description": "The volume number."
+              },
+              "issue": {
+                "type": "string",
+                "description": "The issue number."
+              },
+              "pages": {
+                "type": "string",
+                "description": "The page range."
+              }
+            },
+            "required": ["type", "title", "authors"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["cff-version", "title", "message", "authors"],
+      "additionalProperties": false
+    }
+  }
+}

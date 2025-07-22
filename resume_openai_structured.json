@@ -1,0 +1,450 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "resume_data",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "basics": {
+          "type": "object",
+          "description": "Basic personal information",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Full name of the person"
+            },
+            "label": {
+              "type": "string",
+              "description": "Professional title or role, e.g. Web Developer"
+            },
+            "image": {
+              "type": "string",
+              "description": "URL to a profile image in JPEG or PNG format"
+            },
+            "email": {
+              "type": "string",
+              "description": "Email address, e.g. thomas@gmail.com"
+            },
+            "phone": {
+              "type": "string",
+              "description": "Phone number in any format, e.g. 712-117-2923"
+            },
+            "url": {
+              "type": "string",
+              "description": "Personal website URL"
+            },
+            "summary": {
+              "type": "string",
+              "description": "Short 2-3 sentence biography"
+            },
+            "location": {
+              "type": "object",
+              "description": "Location information",
+              "properties": {
+                "address": {
+                  "type": "string",
+                  "description": "Street address (use \\n for multiple lines)"
+                },
+                "postalCode": {
+                  "type": "string",
+                  "description": "Postal/ZIP code"
+                },
+                "city": {
+                  "type": "string",
+                  "description": "City name"
+                },
+                "countryCode": {
+                  "type": "string",
+                  "description": "ISO-3166-1 ALPHA-2 country code, e.g. US, AU, IN"
+                },
+                "region": {
+                  "type": "string",
+                  "description": "State, province, or region"
+                }
+              }
+            },
+            "profiles": {
+              "type": "array",
+              "description": "Social network profiles",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "network": {
+                    "type": "string",
+                    "description": "Social network name, e.g. Facebook, Twitter"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "Username on the platform"
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "Profile URL"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "work": {
+          "type": "array",
+          "description": "Work experience history",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Company name, e.g. Facebook"
+              },
+              "location": {
+                "type": "string",
+                "description": "Company location, e.g. Menlo Park, CA"
+              },
+              "description": {
+                "type": "string",
+                "description": "Company description, e.g. Social Media Company"
+              },
+              "position": {
+                "type": "string",
+                "description": "Job title, e.g. Software Engineer"
+              },
+              "url": {
+                "type": "string",
+                "description": "Company website URL"
+              },
+              "startDate": {
+                "type": "string",
+                "description": "Start date in ISO 8601 format (YYYY-MM-DD or YYYY-MM or YYYY)"
+              },
+              "endDate": {
+                "type": "string",
+                "description": "End date in ISO 8601 format (YYYY-MM-DD or YYYY-MM or YYYY)"
+              },
+              "summary": {
+                "type": "string",
+                "description": "Overview of responsibilities at the company"
+              },
+              "highlights": {
+                "type": "array",
+                "description": "Key accomplishments and achievements",
+                "items": {
+                  "type": "string",
+                  "description": "Achievement description, e.g. Increased profits by 20% from 2011-2012 through viral advertising"
+                }
+              }
+            }
+          }
+        },
+        "volunteer": {
+          "type": "array",
+          "description": "Volunteer work experience",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organization": {
+                "type": "string",
+                "description": "Organization name"
+              },
+              "position": {
+                "type": "string",
+                "description": "Volunteer position title"
+              },
+              "url": {
+                "type": "string",
+                "description": "Organization website URL"
+              },
+              "startDate": {
+                "type": "string",
+                "description": "Start date in ISO 8601 format"
+              },
+              "endDate": {
+                "type": "string",
+                "description": "End date in ISO 8601 format"
+              },
+              "summary": {
+                "type": "string",
+                "description": "Overview of volunteer responsibilities"
+              },
+              "highlights": {
+                "type": "array",
+                "description": "Volunteer accomplishments and achievements",
+                "items": {
+                  "type": "string",
+                  "description": "Achievement description"
+                }
+              }
+            }
+          }
+        },
+        "education": {
+          "type": "array",
+          "description": "Educational background",
+          "items": {
+            "type": "object",
+            "properties": {
+              "institution": {
+                "type": "string",
+                "description": "Educational institution name, e.g. Massachusetts Institute of Technology"
+              },
+              "url": {
+                "type": "string",
+                "description": "Institution website URL"
+              },
+              "area": {
+                "type": "string",
+                "description": "Field of study, e.g. Arts, Computer Science"
+              },
+              "studyType": {
+                "type": "string",
+                "description": "Type of degree, e.g. Bachelor, Master, PhD"
+              },
+              "startDate": {
+                "type": "string",
+                "description": "Start date in ISO 8601 format"
+              },
+              "endDate": {
+                "type": "string",
+                "description": "End date in ISO 8601 format"
+              },
+              "score": {
+                "type": "string",
+                "description": "Grade point average, e.g. 3.67/4.0"
+              },
+              "courses": {
+                "type": "array",
+                "description": "Notable courses or subjects",
+                "items": {
+                  "type": "string",
+                  "description": "Course name and code, e.g. H1302 - Introduction to American history"
+                }
+              }
+            }
+          }
+        },
+        "awards": {
+          "type": "array",
+          "description": "Professional awards and recognitions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Award title, e.g. One of the 100 greatest minds of the century"
+              },
+              "date": {
+                "type": "string",
+                "description": "Award date in ISO 8601 format"
+              },
+              "awarder": {
+                "type": "string",
+                "description": "Organization that gave the award, e.g. Time Magazine"
+              },
+              "summary": {
+                "type": "string",
+                "description": "Award description, e.g. Received for my work with Quantum Physics"
+              }
+            }
+          }
+        },
+        "certificates": {
+          "type": "array",
+          "description": "Professional certificates",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Certificate name, e.g. Certified Kubernetes Administrator"
+              },
+              "date": {
+                "type": "string",
+                "description": "Certificate date in YYYY-MM-DD format"
+              },
+              "url": {
+                "type": "string",
+                "description": "Certificate verification URL"
+              },
+              "issuer": {
+                "type": "string",
+                "description": "Certificate issuing organization, e.g. CNCF"
+              }
+            }
+          }
+        },
+        "publications": {
+          "type": "array",
+          "description": "Published works and papers",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Publication title, e.g. The World Wide Web"
+              },
+              "publisher": {
+                "type": "string",
+                "description": "Publisher name, e.g. IEEE, Computer Magazine"
+              },
+              "releaseDate": {
+                "type": "string",
+                "description": "Publication date in ISO 8601 format"
+              },
+              "url": {
+                "type": "string",
+                "description": "Publication URL"
+              },
+              "summary": {
+                "type": "string",
+                "description": "Short summary of the publication"
+              }
+            }
+          }
+        },
+        "skills": {
+          "type": "array",
+          "description": "Professional skills and competencies",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Skill category name, e.g. Web Development"
+              },
+              "level": {
+                "type": "string",
+                "description": "Proficiency level, e.g. Beginner, Intermediate, Advanced, Expert"
+              },
+              "keywords": {
+                "type": "array",
+                "description": "Specific technologies or tools related to this skill",
+                "items": {
+                  "type": "string",
+                  "description": "Technology or tool name, e.g. HTML, JavaScript, Python"
+                }
+              }
+            }
+          }
+        },
+        "languages": {
+          "type": "array",
+          "description": "Language proficiencies",
+          "items": {
+            "type": "object",
+            "properties": {
+              "language": {
+                "type": "string",
+                "description": "Language name, e.g. English, Spanish, French"
+              },
+              "fluency": {
+                "type": "string",
+                "description": "Fluency level, e.g. Native, Fluent, Conversational, Basic"
+              }
+            }
+          }
+        },
+        "interests": {
+          "type": "array",
+          "description": "Personal interests and hobbies",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Interest category, e.g. Philosophy, Sports, Music"
+              },
+              "keywords": {
+                "type": "array",
+                "description": "Specific interests within this category",
+                "items": {
+                  "type": "string",
+                  "description": "Specific interest, e.g. Friedrich Nietzsche, Basketball, Jazz"
+                }
+              }
+            }
+          }
+        },
+        "references": {
+          "type": "array",
+          "description": "Professional references",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Reference contact name, e.g. Timothy Cook"
+              },
+              "reference": {
+                "type": "string",
+                "description": "Reference statement or testimonial"
+              }
+            }
+          }
+        },
+        "projects": {
+          "type": "array",
+          "description": "Professional and personal projects",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Project name, e.g. The World Wide Web"
+              },
+              "description": {
+                "type": "string",
+                "description": "Project description and summary"
+              },
+              "highlights": {
+                "type": "array",
+                "description": "Key features and accomplishments of the project",
+                "items": {
+                  "type": "string",
+                  "description": "Project highlight or feature"
+                }
+              },
+              "keywords": {
+                "type": "array",
+                "description": "Technologies and tools used in the project",
+                "items": {
+                  "type": "string",
+                  "description": "Technology or tool name, e.g. AngularJS, Python, AWS"
+                }
+              },
+              "startDate": {
+                "type": "string",
+                "description": "Project start date in ISO 8601 format"
+              },
+              "endDate": {
+                "type": "string",
+                "description": "Project end date in ISO 8601 format"
+              },
+              "url": {
+                "type": "string",
+                "description": "Project URL or repository link"
+              },
+              "roles": {
+                "type": "array",
+                "description": "Your roles in the project",
+                "items": {
+                  "type": "string",
+                  "description": "Role description, e.g. Team Lead, Developer, Designer"
+                }
+              },
+              "entity": {
+                "type": "string",
+                "description": "Associated company or organization"
+              },
+              "type": {
+                "type": "string",
+                "description": "Project type, e.g. application, website, research, volunteering"
+              }
+            }
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  }
+}

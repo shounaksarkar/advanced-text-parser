@@ -1,0 +1,37 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "github_action_outputs",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "outputs": {
+          "type": "array",
+          "description": "Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name/key of the output parameter."
+              },
+              "description": {
+                "type": "string",
+                "description": "A string description of the output parameter."
+              },
+              "value": {
+                "type": "string",
+                "description": "The value that the output parameter will be mapped to. You can set this to a string or an expression with context. Required for composite actions."
+              }
+            },
+            "required": ["name", "description", "value"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["outputs"],
+      "additionalProperties": false
+    }
+  }
+}

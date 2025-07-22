@@ -1,0 +1,184 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "resume_additional_info",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "volunteer": {
+          "type": "array",
+          "description": "Volunteer work experience",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organization": {
+                "type": "string",
+                "description": "Organization name"
+              },
+              "position": {
+                "type": "string",
+                "description": "Volunteer position title"
+              },
+              "url": {
+                "type": "string",
+                "description": "Organization website URL"
+              },
+              "startDate": {
+                "type": "string",
+                "description": "Start date in ISO 8601 format"
+              },
+              "endDate": {
+                "type": "string",
+                "description": "End date in ISO 8601 format"
+              },
+              "summary": {
+                "type": "string",
+                "description": "Overview of volunteer responsibilities"
+              },
+              "highlights": {
+                "type": "array",
+                "description": "Volunteer accomplishments and achievements",
+                "items": {
+                  "type": "string",
+                  "description": "Achievement description"
+                }
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "awards": {
+          "type": "array",
+          "description": "Professional awards and recognitions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Award title, e.g. One of the 100 greatest minds of the century"
+              },
+              "date": {
+                "type": "string",
+                "description": "Award date in ISO 8601 format"
+              },
+              "awarder": {
+                "type": "string",
+                "description": "Organization that gave the award, e.g. Time Magazine"
+              },
+              "summary": {
+                "type": "string",
+                "description": "Award description, e.g. Received for my work with Quantum Physics"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "certificates": {
+          "type": "array",
+          "description": "Professional certificates",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Certificate name, e.g. Certified Kubernetes Administrator"
+              },
+              "date": {
+                "type": "string",
+                "description": "Certificate date in YYYY-MM-DD format"
+              },
+              "url": {
+                "type": "string",
+                "description": "Certificate verification URL"
+              },
+              "issuer": {
+                "type": "string",
+                "description": "Certificate issuing organization, e.g. CNCF"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "publications": {
+          "type": "array",
+          "description": "Published works and papers",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Publication title, e.g. The World Wide Web"
+              },
+              "publisher": {
+                "type": "string",
+                "description": "Publisher name, e.g. IEEE, Computer Magazine"
+              },
+              "releaseDate": {
+                "type": "string",
+                "description": "Publication date in ISO 8601 format"
+              },
+              "url": {
+                "type": "string",
+                "description": "Publication URL"
+              },
+              "summary": {
+                "type": "string",
+                "description": "Short summary of the publication"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "interests": {
+          "type": "array",
+          "description": "Personal interests and hobbies",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Interest category, e.g. Philosophy, Sports, Music"
+              },
+              "keywords": {
+                "type": "array",
+                "description": "Specific interests within this category",
+                "items": {
+                  "type": "string",
+                  "description": "Specific interest, e.g. Friedrich Nietzsche, Basketball, Jazz"
+                }
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "references": {
+          "type": "array",
+          "description": "Professional references",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Reference contact name, e.g. Timothy Cook"
+              },
+              "reference": {
+                "type": "string",
+                "description": "Reference statement or testimonial"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  }
+}

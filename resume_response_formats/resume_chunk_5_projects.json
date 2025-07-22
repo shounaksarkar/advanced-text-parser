@@ -1,0 +1,77 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "resume_projects",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "description": "Professional and personal projects",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Project name, e.g. The World Wide Web"
+              },
+              "description": {
+                "type": "string",
+                "description": "Project description and summary"
+              },
+              "highlights": {
+                "type": "array",
+                "description": "Key features and accomplishments of the project",
+                "items": {
+                  "type": "string",
+                  "description": "Project highlight or feature"
+                }
+              },
+              "keywords": {
+                "type": "array",
+                "description": "Technologies and tools used in the project",
+                "items": {
+                  "type": "string",
+                  "description": "Technology or tool name, e.g. AngularJS, Python, AWS"
+                }
+              },
+              "startDate": {
+                "type": "string",
+                "description": "Project start date in ISO 8601 format"
+              },
+              "endDate": {
+                "type": "string",
+                "description": "Project end date in ISO 8601 format"
+              },
+              "url": {
+                "type": "string",
+                "description": "Project URL or repository link"
+              },
+              "roles": {
+                "type": "array",
+                "description": "Your roles in the project",
+                "items": {
+                  "type": "string",
+                  "description": "Role description, e.g. Team Lead, Developer, Designer"
+                }
+              },
+              "entity": {
+                "type": "string",
+                "description": "Associated company or organization"
+              },
+              "type": {
+                "type": "string",
+                "description": "Project type, e.g. application, website, research, volunteering"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["projects"],
+      "additionalProperties": false
+    }
+  }
+}

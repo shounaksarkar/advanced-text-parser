@@ -1,0 +1,109 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "github_action_runs_composite",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "runs": {
+          "type": "object",
+          "description": "Configures the path to the composite action and the application used to execute the code.",
+          "properties": {
+            "using": {
+              "type": "string",
+              "description": "To use a composite run steps action, set this to 'composite'.",
+              "enum": ["composite"]
+            },
+            "steps": {
+              "type": "array",
+              "description": "The run steps that you plan to run in this action.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "run": {
+                    "type": "string",
+                    "description": "The command you want to run. This can be inline or a script in your action repository."
+                  },
+                  "shell": {
+                    "type": "string",
+                    "description": "The shell where you want to run the command.",
+                    "enum": ["bash", "pwsh", "python", "sh", "cmd", "powershell"]
+                  },
+                  "uses": {
+                    "type": "string",
+                    "description": "Selects an action to run as part of a step in your job."
+                  },
+                  "with": {
+                    "type": "array",
+                    "description": "A list of input parameters defined by the action.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "The name of the input parameter."
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "The value of the input parameter."
+                        }
+                      },
+                      "required": ["name", "value"],
+                      "additionalProperties": false
+                    }
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the composite run step."
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "A unique identifier for the step. You can use the id to reference the step in contexts."
+                  },
+                  "if": {
+                    "type": "string",
+                    "description": "You can use the if conditional to prevent a step from running unless a condition is met."
+                  },
+                  "env": {
+                    "type": "array",
+                    "description": "Sets a list of environment variables for only that step.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "The name of the environment variable."
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "The value of the environment variable."
+                        }
+                      },
+                      "required": ["name", "value"],
+                      "additionalProperties": false
+                    }
+                  },
+                  "continue-on-error": {
+                    "type": "boolean",
+                    "description": "Prevents a job from failing when a step fails. Set to true to allow a job to pass when this step fails."
+                  },
+                  "working-directory": {
+                    "type": "string",
+                    "description": "Specifies the working directory where the command is run."
+                  }
+                },
+                "required": ["run", "shell", "uses", "with", "name", "id", "if", "env", "continue-on-error", "working-directory"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["using", "steps"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["runs"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "resume_basics",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the person"
+        },
+        "label": {
+          "type": "string",
+          "description": "Professional title or role, e.g. Web Developer"
+        },
+        "image": {
+          "type": "string",
+          "description": "URL to a profile image in JPEG or PNG format"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address, e.g. thomas@gmail.com"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number in any format, e.g. 712-117-2923"
+        },
+        "url": {
+          "type": "string",
+          "description": "Personal website URL"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Short 2-3 sentence biography"
+        },
+        "location": {
+          "type": "object",
+          "description": "Location information",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "Street address (use \\n for multiple lines)"
+            },
+            "postalCode": {
+              "type": "string",
+              "description": "Postal/ZIP code"
+            },
+            "city": {
+              "type": "string",
+              "description": "City name"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "ISO-3166-1 ALPHA-2 country code, e.g. US, AU, IN"
+            },
+            "region": {
+              "type": "string",
+              "description": "State, province, or region"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "profiles": {
+          "type": "array",
+          "description": "Social network profiles",
+          "items": {
+            "type": "object",
+            "properties": {
+              "network": {
+                "type": "string",
+                "description": "Social network name, e.g. Facebook, Twitter"
+              },
+              "username": {
+                "type": "string",
+                "description": "Username on the platform"
+              },
+              "url": {
+                "type": "string",
+                "description": "Profile URL"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  }
+}

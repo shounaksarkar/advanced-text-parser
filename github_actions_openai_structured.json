@@ -1,0 +1,294 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "github_action_complete",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of your action. GitHub displays the name in the Actions tab to help visually identify actions in each job."
+        },
+        "author": {
+          "type": "string",
+          "description": "The name of the action's author."
+        },
+        "description": {
+          "type": "string",
+          "description": "A short description of the action."
+        },
+        "inputs": {
+          "type": "object",
+          "description": "Input parameters that the action expects to use during runtime.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "A string description of the input parameter."
+              },
+              "deprecationMessage": {
+                "type": "string",
+                "description": "A string shown to users using the deprecated input."
+              },
+              "required": {
+                "type": "boolean",
+                "description": "Whether the action requires the input parameter."
+              },
+              "default": {
+                "type": "string",
+                "description": "Default value used when an input parameter isn't specified."
+              }
+            },
+            "required": ["description"],
+            "additionalProperties": false
+          }
+        },
+        "outputs": {
+          "type": "object",
+          "description": "Output parameters allow you to declare data that an action sets.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "A string description of the output parameter."
+              },
+              "value": {
+                "type": "string",
+                "description": "The value that the output parameter will be mapped to."
+              }
+            },
+            "required": ["description"],
+            "additionalProperties": false
+          }
+        },
+        "runs": {
+          "type": "object",
+          "description": "Configures how the action is executed.",
+          "oneOf": [
+            {
+              "properties": {
+                "using": {
+                  "type": "string",
+                  "enum": ["node12", "node16", "node20"]
+                },
+                "main": {
+                  "type": "string",
+                  "description": "The file that contains your action code."
+                },
+                "pre": {
+                  "type": "string",
+                  "description": "Script to run at the start of a job."
+                },
+                "pre-if": {
+                  "type": "string",
+                  "description": "Conditions for the pre action execution."
+                },
+                "post": {
+                  "type": "string",
+                  "description": "Script to run at the end of a job."
+                },
+                "post-if": {
+                  "type": "string",
+                  "description": "Conditions for the post action execution."
+                }
+              },
+              "required": ["using", "main"],
+              "additionalProperties": false
+            },
+            {
+              "properties": {
+                "using": {
+                  "type": "string",
+                  "enum": ["docker"]
+                },
+                "image": {
+                  "type": "string",
+                  "description": "The Docker image to use as the container."
+                },
+                "env": {
+                  "type": "object",
+                  "description": "Environment variables for the container.",
+                  "additionalProperties": {
+                    "oneOf": [
+                      {"type": "string"},
+                      {"type": "number"},
+                      {"type": "boolean"}
+                    ]
+                  }
+                },
+                "entrypoint": {
+                  "type": "string",
+                  "description": "Overrides the Docker ENTRYPOINT."
+                },
+                "pre-entrypoint": {
+                  "type": "string",
+                  "description": "Script to run before the entrypoint."
+                },
+                "pre-if": {
+                  "type": "string",
+                  "description": "Conditions for the pre-entrypoint execution."
+                },
+                "post-entrypoint": {
+                  "type": "string",
+                  "description": "Cleanup script after entrypoint completion."
+                },
+                "post-if": {
+                  "type": "string",
+                  "description": "Conditions for the post-entrypoint execution."
+                },
+                "args": {
+                  "type": "array",
+                  "description": "Input arguments for the Docker container.",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": ["using", "image"],
+              "additionalProperties": false
+            },
+            {
+              "properties": {
+                "using": {
+                  "type": "string",
+                  "enum": ["composite"]
+                },
+                "steps": {
+                  "type": "array",
+                  "description": "The run steps for this composite action.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "run": {
+                        "type": "string",
+                        "description": "The command you want to run."
+                      },
+                      "shell": {
+                        "type": "string",
+                        "description": "The shell where you want to run the command.",
+                        "enum": ["bash", "pwsh", "python", "sh", "cmd", "powershell"]
+                      },
+                      "uses": {
+                        "type": "string",
+                        "description": "Selects an action to run as part of a step."
+                      },
+                      "with": {
+                        "type": "object",
+                        "description": "Input parameters for the action.",
+                        "additionalProperties": true
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the composite run step."
+                      },
+                      "id": {
+                        "type": "string",
+                        "description": "A unique identifier for the step."
+                      },
+                      "if": {
+                        "type": "string",
+                        "description": "Conditional to prevent step from running."
+                      },
+                      "env": {
+                        "type": "object",
+                        "description": "Environment variables for this step.",
+                        "additionalProperties": {
+                          "oneOf": [
+                            {"type": "string"},
+                            {"type": "number"},
+                            {"type": "boolean"}
+                          ]
+                        }
+                      },
+                      "continue-on-error": {
+                        "type": "boolean",
+                        "description": "Prevents job from failing when step fails."
+                      },
+                      "working-directory": {
+                        "type": "string",
+                        "description": "Working directory where the command is run."
+                      }
+                    },
+                    "required": [],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": ["using", "steps"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "branding": {
+          "type": "object",
+          "description": "Color and icon to create a badge for your action.",
+          "properties": {
+            "color": {
+              "type": "string",
+              "description": "The background color of the badge.",
+              "enum": [
+                "white", "black", "yellow", "blue", "green", "orange", "red", "purple", "gray-dark"
+              ]
+            },
+            "icon": {
+              "type": "string",
+              "description": "The name of the Feather icon to use.",
+              "enum": [
+                "activity", "airplay", "alert-circle", "alert-octagon", "alert-triangle",
+                "align-center", "align-justify", "align-left", "align-right", "anchor",
+                "aperture", "archive", "arrow-down-circle", "arrow-down-left", "arrow-down-right",
+                "arrow-down", "arrow-left-circle", "arrow-left", "arrow-right-circle", "arrow-right",
+                "arrow-up-circle", "arrow-up-left", "arrow-up-right", "arrow-up", "at-sign",
+                "award", "bar-chart-2", "bar-chart", "battery-charging", "battery",
+                "bell-off", "bell", "bluetooth", "bold", "book-open", "book", "bookmark",
+                "box", "briefcase", "calendar", "camera-off", "camera", "cast",
+                "check-circle", "check-square", "check", "chevron-down", "chevron-left",
+                "chevron-right", "chevron-up", "chevrons-down", "chevrons-left", "chevrons-right",
+                "chevrons-up", "circle", "clipboard", "clock", "cloud-drizzle", "cloud-lightning",
+                "cloud-off", "cloud-rain", "cloud-snow", "cloud", "code", "command",
+                "compass", "copy", "corner-down-left", "corner-down-right", "corner-left-down",
+                "corner-left-up", "corner-right-down", "corner-right-up", "corner-up-left",
+                "corner-up-right", "cpu", "credit-card", "crop", "crosshair", "database",
+                "delete", "disc", "dollar-sign", "download-cloud", "download", "droplet",
+                "edit-2", "edit-3", "edit", "external-link", "eye-off", "eye",
+                "fast-forward", "feather", "file-minus", "file-plus", "file-text", "file",
+                "film", "filter", "flag", "folder-minus", "folder-plus", "folder",
+                "gift", "git-branch", "git-commit", "git-merge", "git-pull-request", "globe",
+                "grid", "hard-drive", "hash", "headphones", "heart", "help-circle",
+                "home", "image", "inbox", "info", "italic", "layers", "layout",
+                "life-buoy", "link-2", "link", "list", "loader", "lock", "log-in",
+                "log-out", "mail", "map-pin", "map", "maximize-2", "maximize", "menu",
+                "message-circle", "message-square", "mic-off", "mic", "minimize-2", "minimize",
+                "minus-circle", "minus-square", "minus", "monitor", "moon", "more-horizontal",
+                "more-vertical", "move", "music", "navigation-2", "navigation", "octagon",
+                "package", "paperclip", "pause-circle", "pause", "percent", "phone-call",
+                "phone-forwarded", "phone-incoming", "phone-missed", "phone-off", "phone-outgoing",
+                "phone", "pie-chart", "play-circle", "play", "plus-circle", "plus-square",
+                "plus", "pocket", "power", "printer", "radio", "refresh-ccw", "refresh-cw",
+                "repeat", "rewind", "rotate-ccw", "rotate-cw", "rss", "save", "scissors",
+                "search", "send", "server", "settings", "share-2", "share", "shield-off",
+                "shield", "shopping-bag", "shopping-cart", "shuffle", "sidebar", "skip-back",
+                "skip-forward", "slash", "sliders", "smartphone", "speaker", "square",
+                "star", "stop-circle", "sun", "sunrise", "sunset", "table", "tablet",
+                "tag", "target", "terminal", "thermometer", "thumbs-down", "thumbs-up",
+                "toggle-left", "toggle-right", "trash-2", "trash", "trending-down", "trending-up",
+                "triangle", "truck", "tv", "type", "umbrella", "underline", "unlock",
+                "upload-cloud", "upload", "user-check", "user-minus", "user-plus", "user-x",
+                "user", "users", "video-off", "video", "voicemail", "volume-1", "volume-2",
+                "volume-x", "volume", "watch", "wifi-off", "wifi", "wind", "x-circle",
+                "x-square", "x", "zap-off", "zap", "zoom-in", "zoom-out"
+              ]
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": ["name", "description", "runs"],
+      "additionalProperties": false
+    }
+  }
+}

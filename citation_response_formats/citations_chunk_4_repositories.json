@@ -1,0 +1,30 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "citation_repositories_urls",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The URL of a landing page/website for the software or dataset."
+        },
+        "repository": {
+          "type": "string",
+          "description": "The URL of the software or dataset in a repository (when the repository is neither a source code repository nor a build artifact repository)."
+        },
+        "repository-code": {
+          "type": "string",
+          "description": "The URL of the software or dataset in a source code repository."
+        },
+        "repository-artifact": {
+          "type": "string",
+          "description": "The URL of the software in a build artifact/binary repository."
+        }
+      },
+      "required": ["url", "repository", "repository-code", "repository-artifact"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "chunk_order": [
+    "resume_chunk_1_basics.json",
+    "resume_chunk_2_work.json", 
+    "resume_chunk_3_education.json",
+    "resume_chunk_4_skills_languages.json",
+    "resume_chunk_5_projects.json",
+    "resume_chunk_6_additional.json"
+  ],
+  "chunk_descriptions": {
+    "resume_chunk_1_basics.json": "Basic personal information (name, contact, summary)",
+    "resume_chunk_2_work.json": "Work experience and employment history",
+    "resume_chunk_3_education.json": "Educational background and qualifications",
+    "resume_chunk_4_skills_languages.json": "Skills and language proficiencies", 
+    "resume_chunk_5_projects.json": "Projects and portfolio work",
+    "resume_chunk_6_additional.json": "Additional information (awards, volunteer work, etc.)"
+  },
+  "settings": {
+    "model": "gpt-4o-mini",
+    "delay_between_requests": 0.5,
+    "max_retries": 3
+  }
+}

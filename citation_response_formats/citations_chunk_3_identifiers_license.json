@@ -1,0 +1,66 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "citation_identifiers_license",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "doi": {
+          "type": "string",
+          "description": "The DOI of the work (e.g., 10.5281/zenodo.1003150)."
+        },
+        "identifiers": {
+          "type": "array",
+          "description": "The identifiers of the software or dataset.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The identifier value."
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of identifier.",
+                "enum": ["doi", "url", "swh", "other"]
+              },
+              "description": {
+                "type": "string",
+                "description": "A description for this specific identifier value."
+              }
+            },
+            "required": ["value", "type", "description"],
+            "additionalProperties": false
+          }
+        },
+        "license": {
+          "type": "array",
+          "description": "SPDX license identifier(s) for the work.",
+          "items": {
+            "type": "string",
+            "description": "SPDX license identifier (e.g., MIT, Apache-2.0, GPL-3.0)"
+          }
+        },
+        "license-url": {
+          "type": "string",
+          "description": "The URL of the license text (only for non-standard licenses not in SPDX License List)."
+        },
+        "keywords": {
+          "type": "array",
+          "description": "Keywords that describe the work.",
+          "items": {
+            "type": "string",
+            "description": "A keyword describing the work."
+          }
+        },
+        "commit": {
+          "type": "string",
+          "description": "The Git commit hash or Subversion revision number of the work."
+        }
+      },
+      "required": ["doi", "identifiers", "license", "license-url", "keywords", "commit"],
+      "additionalProperties": false
+    }
+  }
+}

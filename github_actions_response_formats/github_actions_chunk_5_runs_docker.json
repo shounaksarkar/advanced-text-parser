@@ -1,0 +1,77 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "github_action_runs_docker",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "runs": {
+          "type": "object",
+          "description": "Configures the image used for the Docker action.",
+          "properties": {
+            "using": {
+              "type": "string",
+              "description": "Must be set to 'docker' for Docker container actions.",
+              "enum": ["docker"]
+            },
+            "image": {
+              "type": "string",
+              "description": "The Docker image to use as the container to run the action. Can be Docker base image name, local Dockerfile, or public image."
+            },
+            "env": {
+              "type": "array",
+              "description": "Specifies a list of environment variables to set in the container environment.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the environment variable."
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "The value of the environment variable."
+                  }
+                },
+                "required": ["name", "value"],
+                "additionalProperties": false
+              }
+            },
+            "entrypoint": {
+              "type": "string",
+              "description": "Overrides the Docker ENTRYPOINT in the Dockerfile, or sets it if one wasn't already specified."
+            },
+            "pre-entrypoint": {
+              "type": "string",
+              "description": "Allows you to run a script before the entrypoint action begins."
+            },
+            "pre-if": {
+              "type": "string",
+              "description": "Allows you to define conditions for the pre-entrypoint action execution."
+            },
+            "post-entrypoint": {
+              "type": "string",
+              "description": "Allows you to run a cleanup script once the runs.entrypoint action has completed."
+            },
+            "post-if": {
+              "type": "string",
+              "description": "Allows you to define conditions for the post-entrypoint action execution."
+            },
+            "args": {
+              "type": "array",
+              "description": "An array of strings that define the inputs for a Docker container.",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": ["using", "image", "env", "entrypoint", "pre-entrypoint", "pre-if", "post-entrypoint", "post-if", "args"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["runs"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "citation_contact_preferred",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "contact": {
+          "type": "array",
+          "description": "The contact person, group, company, etc. for the software or dataset.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "family-names": {
+                "type": "string",
+                "description": "The person's family names (for person contacts)."
+              },
+              "given-names": {
+                "type": "string",
+                "description": "The person's given names (for person contacts)."
+              },
+              "name": {
+                "type": "string",
+                "description": "The entity's name (for entity contacts)."
+              },
+              "email": {
+                "type": "string",
+                "description": "The person's or entity's email address."
+              },
+              "orcid": {
+                "type": "string",
+                "description": "The person's ORCID identifier."
+              },
+              "affiliation": {
+                "type": "string",
+                "description": "The person's affiliation."
+              },
+              "website": {
+                "type": "string",
+                "description": "The entity's website URL."
+              }
+            },
+            "required": ["family-names", "given-names", "name", "email", "orcid", "affiliation", "website"],
+            "additionalProperties": false
+          }
+        },
+        "preferred-citation": {
+          "type": "object",
+          "description": "A reference to another work that should be cited instead of the software or dataset itself.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The type of the work.",
+              "enum": [
+                "art", "article", "audiovisual", "bill", "blog", "book", "catalogue",
+                "conference-paper", "conference", "data", "database", "dictionary",
+                "edited-work", "encyclopedia", "film-broadcast", "generic",
+                "government-document", "grant", "hearing", "historical-work",
+                "legal-case", "legal-rule", "magazine-article", "manual", "map",
+                "multimedia", "music", "newspaper-article", "pamphlet", "patent",
+                "personal-communication", "proceedings", "report", "serial", "slides",
+                "software-code", "software-container", "software-executable",
+                "software-virtual-machine", "software", "sound-recording", "standard",
+                "statute", "thesis", "unpublished", "video", "website"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "description": "The title of the work."
+            },
+            "authors": {
+              "type": "array",
+              "description": "The author(s) of the work.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "family-names": {
+                    "type": "string",
+                    "description": "The person's family names."
+                  },
+                  "given-names": {
+                    "type": "string",
+                    "description": "The person's given names."
+                  }
+                },
+                "required": ["family-names", "given-names"],
+                "additionalProperties": false
+              }
+            },
+            "doi": {
+              "type": "string",
+              "description": "The DOI of the work."
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL of the work."
+            },
+            "year": {
+              "type": "integer",
+              "description": "The year in which the work has been published."
+            },
+            "month": {
+              "type": "integer",
+              "description": "The month in which the work has been published (1-12)."
+            },
+            "journal": {
+              "type": "string",
+              "description": "The name of the journal/magazine/newspaper where the work was published."
+            },
+            "volume": {
+              "type": "string",
+              "description": "The volume of the periodical in which the work appeared."
+            },
+            "issue": {
+              "type": "string",
+              "description": "The issue of the periodical in which the work appeared."
+            },
+            "pages": {
+              "type": "string",
+              "description": "The page range of the work."
+            },
+            "publisher": {
+              "type": "object",
+              "description": "The publisher of the work.",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The publisher's name."
+                },
+                "city": {
+                  "type": "string",
+                  "description": "The publisher's city."
+                }
+              },
+              "required": ["name", "city"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["type", "title", "authors", "doi", "url", "year", "month", "journal", "volume", "issue", "pages", "publisher"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["contact", "preferred-citation"],
+      "additionalProperties": false
+    }
+  }
+}

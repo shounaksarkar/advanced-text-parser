@@ -1,0 +1,105 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "citation_authors",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "authors": {
+          "type": "array",
+          "description": "The author(s) of the software or dataset.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "family-names": {
+                "type": "string",
+                "description": "The person's family names (for person authors)."
+              },
+              "given-names": {
+                "type": "string",
+                "description": "The person's given names (for person authors)."
+              },
+              "name": {
+                "type": "string",
+                "description": "The entity's name (for institutional authors)."
+              },
+              "name-particle": {
+                "type": "string",
+                "description": "The person's name particle, e.g., 'von' in 'Alexander von Humboldt'."
+              },
+              "name-suffix": {
+                "type": "string",
+                "description": "The person's name-suffix, e.g. 'Jr.' or 'III'."
+              },
+              "orcid": {
+                "type": "string",
+                "description": "The person's or entity's ORCID identifier."
+              },
+              "email": {
+                "type": "string",
+                "description": "The person's or entity's email address."
+              },
+              "affiliation": {
+                "type": "string",
+                "description": "The person's affiliation."
+              },
+              "address": {
+                "type": "string",
+                "description": "The person's or entity's address."
+              },
+              "city": {
+                "type": "string",
+                "description": "The person's or entity's city."
+              },
+              "region": {
+                "type": "string",
+                "description": "The person's or entity's region."
+              },
+              "post-code": {
+                "type": "string",
+                "description": "The person's or entity's post code."
+              },
+              "country": {
+                "type": "string",
+                "description": "The person's or entity's country (ISO 3166-1 alpha-2 code)."
+              },
+              "tel": {
+                "type": "string",
+                "description": "The person's or entity's phone number."
+              },
+              "fax": {
+                "type": "string",
+                "description": "The person's or entity's fax number."
+              },
+              "website": {
+                "type": "string",
+                "description": "The person's or entity's website URL."
+              },
+              "alias": {
+                "type": "string",
+                "description": "The person's or entity's alias."
+              },
+              "location": {
+                "type": "string",
+                "description": "The entity's location."
+              },
+              "date-start": {
+                "type": "string",
+                "description": "The entity's starting date, e.g., when the entity is a conference."
+              },
+              "date-end": {
+                "type": "string",
+                "description": "The entity's ending date, e.g., when the entity is a conference."
+              }
+            },
+            "required": ["family-names", "given-names", "name", "name-particle", "name-suffix", "orcid", "email", "affiliation", "address", "city", "region", "post-code", "country", "tel", "fax", "website", "alias", "location", "date-start", "date-end"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["authors"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "resume_skills_languages",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "skills": {
+          "type": "array",
+          "description": "Professional skills and competencies",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Skill category name, e.g. Web Development"
+              },
+              "level": {
+                "type": "string",
+                "description": "Proficiency level, e.g. Beginner, Intermediate, Advanced, Expert"
+              },
+              "keywords": {
+                "type": "array",
+                "description": "Specific technologies or tools related to this skill",
+                "items": {
+                  "type": "string",
+                  "description": "Technology or tool name, e.g. HTML, JavaScript, Python"
+                }
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "languages": {
+          "type": "array",
+          "description": "Language proficiencies",
+          "items": {
+            "type": "object",
+            "properties": {
+              "language": {
+                "type": "string",
+                "description": "Language name, e.g. English, Spanish, French"
+              },
+              "fluency": {
+                "type": "string",
+                "description": "Fluency level, e.g. Native, Fluent, Conversational, Basic"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  }
+}

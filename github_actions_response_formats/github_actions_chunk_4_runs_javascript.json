@@ -1,0 +1,47 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "github_action_runs_javascript",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "runs": {
+          "type": "object",
+          "description": "Configures the path to the action's code and the application used to execute the code for JavaScript actions.",
+          "properties": {
+            "using": {
+              "type": "string",
+              "description": "The application used to execute the code specified in main.",
+              "enum": ["node12", "node16", "node20"]
+            },
+            "main": {
+              "type": "string",
+              "description": "The file that contains your action code. The application specified in using executes this file."
+            },
+            "pre": {
+              "type": "string",
+              "description": "Allows you to run a script at the start of a job, before the main action begins."
+            },
+            "pre-if": {
+              "type": "string",
+              "description": "Allows you to define conditions for the pre action execution. The pre action will only run if the conditions in pre-if are met."
+            },
+            "post": {
+              "type": "string",
+              "description": "Allows you to run a script at the end of a job, once the main action has completed."
+            },
+            "post-if": {
+              "type": "string",
+              "description": "Allows you to define conditions for the post action execution. The post action will only run if the conditions in post-if are met."
+            }
+          },
+          "required": ["using", "main", "pre", "post", "pre-if", "post-if"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["runs"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "citation_basic_info",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "cff-version": {
+          "type": "string",
+          "description": "The version of CFF used for providing the citation metadata. Must be 1.2.0"
+        },
+        "title": {
+          "type": "string",
+          "description": "The name of the software or dataset."
+        },
+        "message": {
+          "type": "string",
+          "description": "A message to the human reader of the file to let them know what to do with the citation metadata."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the work.",
+          "enum": ["dataset", "software"]
+        },
+        "abstract": {
+          "type": "string",
+          "description": "A description of the software or dataset."
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the software or dataset."
+        },
+        "date-released": {
+          "type": "string",
+          "description": "The date the work has been released in YYYY-MM-DD format."
+        }
+      },
+      "required": ["cff-version", "title", "message", "type", "abstract", "version", "date-released"],
+      "additionalProperties": false
+    }
+  }
+}
