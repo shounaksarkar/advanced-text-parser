@@ -7,13 +7,9 @@ import PyPDF2
 import io
 from openai import OpenAI
 import time
-from dotenv import load_dotenv
 import bibtexparser
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import convert_to_unicode
-
-# Load environment variables from .env file
-load_dotenv()
 
 # Page configuration
 st.set_page_config(
