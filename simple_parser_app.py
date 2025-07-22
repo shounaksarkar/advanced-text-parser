@@ -122,7 +122,7 @@ def call_gpt_with_structured_output(client, prompt, response_format, max_retries
             messages = [{"role": "user", "content": prompt}]
             
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-4.1",
                 messages=messages,
                 response_format=response_format,
             )
