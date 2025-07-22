@@ -23,13 +23,20 @@ st.set_page_config(
 @st.cache_resource
 def get_openai_client():
     """Initialize OpenAI client with caching"""
-    api_key = os.getenv('OPENAI_API_KEY')
-    if not api_key:
-        st.error("⚠️ OpenAI API key not found!")
-        st.error("Please create a `.env` file in the project directory with:")
-        st.code("OPENAI_API_KEY=your_api_key_here")
+    try:
+        api_key = st.secrets["OpenAI_key"]
+        if not api_key:
+            st.error("⚠️ OpenAI API key not found in Streamlit secrets!")
+            st.error("Please add your OpenAI API key to Streamlit secrets:")
+            st.code('OpenAI_key = "your_api_key_here"')
+            st.stop()
+        return OpenAI(api_key=api_key)
+    except KeyError:
+        st.error("⚠️ OpenAI API key not found in Streamlit secrets!")
+        st.error("Please add your OpenAI API key to Streamlit secrets:")
+        st.code('OpenAI_key = "your_api_key_here"')
+        st.error("You can add it via the Streamlit Cloud dashboard or create a `.streamlit/secrets.toml` file locally.")
         st.stop()
-    return OpenAI(api_key=api_key)
 
 def extract_text_from_pdf(pdf_file):
     """Extract text from uploaded PDF file"""
