@@ -59,7 +59,7 @@
               "description": "State, province, or region"
             }
           },
-          "required": [],
+          "required": ["address", "postalCode", "city", "countryCode", "region"],
           "additionalProperties": false
         },
         "profiles": {
@@ -81,12 +81,12 @@
                 "description": "Profile URL"
               }
             },
-            "required": [],
+            "required": ["network", "username", "url"],
             "additionalProperties": false
           }
         }
       },
-      "required": [],
+      "required": ["name", "label", "image", "email", "phone", "url", "summary", "location", "profiles"],
       "additionalProperties": false
     }
   }

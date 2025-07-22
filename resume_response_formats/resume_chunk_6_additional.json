@@ -45,7 +45,7 @@
                 }
               }
             },
-            "required": [],
+            "required": ["organization", "position", "url", "startDate", "endDate", "summary", "highlights"],
             "additionalProperties": false
           }
         },
@@ -72,7 +72,7 @@
                 "description": "Award description, e.g. Received for my work with Quantum Physics"
               }
             },
-            "required": [],
+            "required": ["title", "date", "awarder", "summary"],
             "additionalProperties": false
           }
         },
@@ -99,7 +99,7 @@
                 "description": "Certificate issuing organization, e.g. CNCF"
               }
             },
-            "required": [],
+            "required": ["name", "date", "url", "issuer"],
             "additionalProperties": false
           }
         },
@@ -130,7 +130,7 @@
                 "description": "Short summary of the publication"
               }
             },
-            "required": [],
+            "required": ["name", "publisher", "releaseDate", "url", "summary"],
             "additionalProperties": false
           }
         },
@@ -153,7 +153,7 @@
                 }
               }
             },
-            "required": [],
+            "required": ["name", "keywords"],
             "additionalProperties": false
           }
         },
@@ -172,12 +172,12 @@
                 "description": "Reference statement or testimonial"
               }
             },
-            "required": [],
+            "required": ["name", "reference"],
             "additionalProperties": false
           }
         }
       },
-      "required": [],
+      "required": ["volunteer", "awards", "certificates", "publications", "interests", "references"],
       "additionalProperties": false
     }
   }

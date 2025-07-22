@@ -29,7 +29,7 @@
                 }
               }
             },
-            "required": [],
+            "required": ["name", "level", "keywords"],
             "additionalProperties": false
           }
         },
@@ -48,12 +48,12 @@
                 "description": "Fluency level, e.g. Native, Fluent, Conversational, Basic"
               }
             },
-            "required": [],
+            "required": ["language", "fluency"],
             "additionalProperties": false
           }
         }
       },
-      "required": [],
+      "required": ["skills", "languages"],
       "additionalProperties": false
     }
   }

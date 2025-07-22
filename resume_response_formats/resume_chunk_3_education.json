@@ -49,7 +49,7 @@
                 }
               }
             },
-            "required": [],
+            "required": ["institution", "url", "area", "studyType", "startDate", "endDate", "score", "courses"],
             "additionalProperties": false
           }
         }

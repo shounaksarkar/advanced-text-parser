@@ -65,7 +65,7 @@
                 "description": "Project type, e.g. application, website, research, volunteering"
               }
             },
-            "required": [],
+            "required": ["name", "description", "highlights", "keywords", "startDate", "endDate", "url", "roles", "entity", "type"],
             "additionalProperties": false
           }
         }
